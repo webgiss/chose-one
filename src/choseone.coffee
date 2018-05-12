@@ -11,8 +11,8 @@ colors = [
     [136,136,136]
     ]
 
-TouchManager = 
-    data : 
+TouchManager =
+    data :
         state : {}
         pos: []
         availableColorIndexes: [0...colors.length]
@@ -20,7 +20,7 @@ TouchManager =
         bgColor: [0,0,0]
         evtCountMax: 3
         width: 50
-        sounds: 
+        sounds:
             ting: new Howl src: ['sound/237105__sqeeeek__sqeeeek-bell-ting2.wav']
             tong: new Howl src: ['sound/237106__sqeeeek__sqeeeek-bell-ting1.wav']
             dzang: new Howl src: ['sound/170237__luttoaudio__glass-ting.wav']
@@ -32,13 +32,13 @@ TouchManager =
                 TouchManager.removeCircle(p.x, p.y)
             p = TouchManager.data.winnerP
             if p != undefined
-                TouchManager.removeCircle(p.x, p.y) 
+                TouchManager.removeCircle(p.x, p.y)
             
             TouchManager.data.winnerP = undefined
             TouchManager.data.pos = []
             TouchManager.data.availableColorIndexes = [0...colors.length]
         
-    cleanIfEnded: () => 
+    cleanIfEnded: () =>
         if TouchManager.data.winnerP != undefined
             TouchManager.clean()
 
@@ -82,9 +82,9 @@ TouchManager =
         return
         
     getColor: (color, a) =>
-        r = color[0];
-        g = color[1];
-        b = color[2];
+        r = color[0]
+        g = color[1]
+        b = color[2]
         if a == undefined
           a = 1
         return 'rgba('+r+','+g+','+b+','+a+')'
@@ -162,10 +162,10 @@ TouchManager =
             TouchManager.react(true)
         return
         
-    onClick: (e) => 
+    onClick: (e) =>
         TouchManager.toogleOn(e.offsetX, e.offsetY)
         
-    init:  () => 
+    init:  () =>
         body = document.body
     
         workspace = document.getElementById('workspace')
@@ -179,8 +179,8 @@ TouchManager =
         ctx.fillRect(0, 0, canvas.width, canvas.height)
         TouchManager.data.canvas = canvas
         TouchManager.data.ctx = ctx
-        canvas.addEventListener("click", TouchManager.onClick, false);
-        window.addEventListener("resize", TouchManager.clean, false);
+        canvas.addEventListener("click", TouchManager.onClick, false)
+        window.addEventListener("resize", TouchManager.clean, false)
         window.TouchManager = TouchManager
     
         return
