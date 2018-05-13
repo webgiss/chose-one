@@ -20,6 +20,7 @@ TouchManager =
         bgColor: [0,0,0]
         evtCountMax: 3
         width: 50
+        timeUnit: 1000
         sounds:
             ting: new Howl src: ['sound/237105__sqeeeek__sqeeeek-bell-ting2.wav']
             tong: new Howl src: ['sound/237106__sqeeeek__sqeeeek-bell-ting1.wav']
@@ -67,12 +68,12 @@ TouchManager =
 
             delta = Math.floor(new Date().getTime()-TouchManager.data.state.lastChange)
                
-            if delta>1000*TouchManager.data.evtCountMax
+            if delta>TouchManager.data.timeUnit*TouchManager.data.evtCountMax
                 TouchManager.stop()
-            else if delta>1000*TouchManager.data.state.evtCount
+            else if delta>TouchManager.data.timeUnit*TouchManager.data.state.evtCount
                 TouchManager.data.sounds.tong.play()
                 TouchManager.data.state.evtCount = TouchManager.data.state.evtCount+1
-            nextPossibleEvent = TouchManager.data.state.lastChange+1000*(TouchManager.data.state.evtCount)
+            nextPossibleEvent = TouchManager.data.state.lastChange+TouchManager.data.timeUnit*(TouchManager.data.state.evtCount)
             delay = nextPossibleEvent-new Date().getTime()
             setTimeout(TouchManager.react, delay)
         else
@@ -181,6 +182,19 @@ TouchManager =
         TouchManager.data.ctx = ctx
         canvas.addEventListener("click", TouchManager.onClick, false)
         window.addEventListener("resize", TouchManager.clean, false)
+
+        hashWord = window.document.location.hash.substring(1)
+        if hashWord.length > 0
+            hashWords = hashWord.split(',')
+            if hashWords.length > 0
+                hashValue = parseInt(hashWords[0])
+                if !isNaN(hashValue)
+                    TouchManager.data.evtCountMax = hashValue
+            if hashWords.length > 1
+                hashValue = parseInt(hashWords[1])
+                if !isNaN(hashValue)
+                    TouchManager.data.timeUnit = hashValue
+
         window.TouchManager = TouchManager
     
         return
