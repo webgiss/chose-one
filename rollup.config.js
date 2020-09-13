@@ -4,6 +4,7 @@ import { uglify } from "rollup-plugin-uglify"
 import commonjs from '@rollup/plugin-commonjs'
 import copy from 'rollup-plugin-copy'
 
+const iconSizes = [16, 32, 48, 64, 96, 167, 180, 192, 196, 228, 230]
 
 export default {
     input: 'src/choseone.js',
@@ -29,6 +30,9 @@ export default {
                         ],
                     dest: 'dist/sound',
                 },
+                { src: 'src/browserconfig.xml', dest: 'dist' },
+                { src: 'res/chose-one.ico', dest: 'dist', rename: 'favicon.ico' },
+                ...iconSizes.map((size) => ({ src: `res/chose-one-${size}.png`, dest: 'dist', rename: `favicon-${size}.png` }))
             ]
         }),
     ],

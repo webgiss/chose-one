@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="64" height="64"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Chose One Icon</title>
+    <g>
+        <defs>
+            <linearGradient gradientUnits="userSpaceOnUse" x1="32" x2="32" y1="0" y2="64" id="back">
+                <stop offset="0%" stop-color="#000"/>
+                <stop offset="100%" stop-color="#000"/>
+            </linearGradient>
+            <radialGradient cx="50%" cy="50%" r="50%" fx="50%" fy="50%" id="color1">
+                <stop offset="0%" stop-color="#2323ed"/>
+                <stop offset="70%" stop-color="#2323ed"/>
+                <stop offset="100%" stop-color="#000"/>
+            </radialGradient>
+            <radialGradient cx="50%" cy="50%" r="50%" fx="50%" fy="50%" id="color2">
+                <stop offset="0%" stop-color="#eff707"/>
+                <stop offset="70%" stop-color="#eff707"/>
+                <stop offset="100%" stop-color="#000"/>
+            </radialGradient>
+            <radialGradient cx="50%" cy="50%" r="50%" fx="50%" fy="50%" id="color3">
+                <stop offset="0%" stop-color="#d11d1d"/>
+                <stop offset="70%" stop-color="#d11d1d"/>
+                <stop offset="100%" stop-color="#000"/>
+            </radialGradient>
+            <g id="circle-c1">
+                <circle stroke-width="0" r="8" fill="url(#color1)" cx="0" cy="0" />
+                <circle stroke-width="0" r="4" fill="#000000" cx="0" cy="0" />
+            </g>
+            <g id="circle-c2">
+                <circle stroke-width="0" r="8" fill="url(#color2)" cx="0" cy="0" />
+                <circle stroke-width="0" r="4" fill="#000000" cx="0" cy="0" />
+            </g>
+            <g id="circle-chosen">
+                <circle stroke-width="0" r="8" fill="url(#color3)" cx="0" cy="0" />
+            </g>
+        </defs>
+    </g>
+    <rect width="62" height="62" rx="10" ry="10" x="1" y="1" stroke-width="2" stroke="#ffffff" fill="url(#back)"></rect>
+    <use xlink:href="#circle-c1" x="32" y="16" />
+    <use xlink:href="#circle-c2" x="48" y="32" />
+    <use xlink:href="#circle-chosen" x="24" y="48"/>
+
+</svg>
