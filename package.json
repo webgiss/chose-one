@@ -1,0 +1,29 @@
+{
+  "name": "chose-one",
+  "version": "1.1.0",
+  "description": "Web application to let chose one item/person among several",
+  "main": "src/choseone.js",
+  "repository": "https://github.com/webgiss/chose-one",
+  "author": "gissehel",
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c --no-esModule --no-strict"
+  },
+  "dependencies": {
+    "howler": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-external-helpers": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "babel-preset-minify": "^0.5.1",
+    "babelrc-rollup": "^3.0.0",
+    "rollup": "^2.26.11",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-uglify": "^6.0.4"
+  }
+}
